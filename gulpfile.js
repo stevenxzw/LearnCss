@@ -29,8 +29,16 @@ gulp.task('serve', function () {
 });
 
 
+gulp.task('recover', function () {
+  gulp.src('./demos/*.jade').pipe(watch(
+      function(){ gulp.run('html');}
+  )); 
+});
+
+
+
 gulp.task('html', function () {  
-	harp.compile('./demos', '', function() {
+	harp.compile('./demos', './dist', function() {
 		console.log(arguments);
 	  return gulp.src('./dist/*.html')
 		.pipe(prettify({indent_size: 4, indent_inner_html: true, wrap_line_length: 0}))

@@ -4,9 +4,12 @@ html
   script(src='/jquerys.js')
   script(src='/jquerysf.js')
   script(src='/foo.js')
-  script(src='/bar.js')
   body
-    h1 test
-
-
-
+    p.header
+    p.test
+    - var s = 'world'
+    p.banner #{s}
+    div#t1
+    #t2
+    p hello #{s}
+    p= 'hello' + s
