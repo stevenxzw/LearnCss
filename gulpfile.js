@@ -39,7 +39,7 @@ gulp.task('wjd', function(){
 })
 
 gulp.task('recover', function () {
-      return gulp.src('./dist/*.html')
+      return gulp.src('./www/*.html')
           .pipe(prettify({indent_size: 4, indent_inner_html: true, wrap_line_length: 0}))
           .pipe(gulp.dest('./dist'));
 });
@@ -47,7 +47,7 @@ gulp.task('recover', function () {
 
 
 gulp.task('html', function () {  
-	 harp.compile('./demos', './dist', function() {
+	 harp.compile('./demos', './www', function() {
          gulp.run('recover', 'whtml');
          return;
          return gulp.src('./dist/*.html')
