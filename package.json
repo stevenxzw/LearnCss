@@ -17,6 +17,7 @@
     "gulp-prettify": "^0.2.0",
     "gulp-util": "^3.0.0",
     "gulp-watch": "~0.6.6",
-    "harp": "^0.12.1"
+    "harp": "^0.12.1",
+    "gulp-sass": "~0.7.2"
   }
 }
