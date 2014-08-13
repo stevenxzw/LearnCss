@@ -17,8 +17,9 @@ gulp.task('watch', function () {
 });  
 
 gulp.task('whtml', function (f) {
-    gulp.src('./dist/*.html')  
-        .pipe(connect.reload());  
+    console.log('in------');
+    return gulp.src('./dist')
+        .pipe(connect.reload());
 }); 
 
 gulp.task('serve', function () {
@@ -33,22 +34,34 @@ gulp.task('serve', function () {
 gulp.task('jade', ['serve', 'wjd', 'html']);
 
 gulp.task('wjd', function(){
-
     gulp.watch(['./demos/*.*'], ['html']);
 
 })
 
 gulp.task('recover', function () {
-      return gulp.src('./www/*.html')
-          .pipe(prettify({indent_size: 4, indent_inner_html: true, wrap_line_length: 0}))
+    console.log('after----recover');
+      return gulp.src(['./www/**/*', '!./www/layout', '!./www/layout/*', '!./www/scss', '!./www/scss/*'])
           .pipe(gulp.dest('./dist'));
 });
 
 
+gulp.task('format', function(){
+    return gulp.src('./www/**/*.html')
+        .pipe(prettify({indent_size: 4, indent_inner_html: true, wrap_line_length: 0}))
+        .pipe(gulp.dest('./www'));
+    console.log('after----format---');
 
-gulp.task('html', function () {  
+})
+
+
+
+gulp.task('html', function () {
+
 	 harp.compile('./demos', './www', function() {
-         gulp.run('recover', 'whtml');
+         console.log('after--html');
+        gulp.run('format', 'recover', 'whtml');
+         //console.log('before---whtml');
+        //gulp.run('whtml');
          return;
          return gulp.src('./dist/*.html')
              .pipe(prettify({indent_size: 4, indent_inner_html: true, wrap_line_length: 0}))
