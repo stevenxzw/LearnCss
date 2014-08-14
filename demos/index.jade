@@ -1,9 +1,12 @@
 doctype html
-html(lang="zh-CN")
+html(lang="zh-cn")
   include layout/header
   body
     div.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          a(href="#").navbar-brand projectName
     div.container
-        p.border  success
-        - for(var i=0;i<100;i++)
-          p wandoujia-fe#{i}
+      a(href="#").border  success
+      - for(var i=0;i<100;i++)
+        p wandoujia-fe#{i}

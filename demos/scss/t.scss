@@ -1,6 +1,15 @@
 @import "includes/settings";
 @import "includes/_base";
 
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #428bca;
+  text-decoration: none;
+}
+
 body{
   padding-top: 50px;
   padding-bottom: 20px;
@@ -29,8 +38,34 @@ body{
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
+.container {
+  width: 1170px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+}
 
 
+.navbar-header{
+  margin-right: 0;
+  margin-left: 0;
+  float: left;
+}
+
+.navbar-brand {
+  margin-left: -15px;
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  color: #777;
+  line-height: 20px;
+  :hover {
+    color: #fff;
+  }
+}
 
 .content-navigation {
   border-color: $blue;
