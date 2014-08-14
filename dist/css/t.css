@@ -1,5 +1,5 @@
 html {
-  font-size: 12px;
+  font-size: 14px;
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
@@ -16,7 +16,8 @@ a {
 
 body {
   padding-top: 50px;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  font-size: 14px; }
 
 .navbar {
   position: relative;
@@ -59,15 +60,50 @@ body {
   font-size: 18px;
   color: #777;
   line-height: 20px; }
-  .navbar-brand :hover {
+  .navbar-brand:hover {
     color: #fff; }
 
 .content-navigation {
   border-color: #3bbfce;
   color: #2ca2af; }
 
+.navbar-collapse {
+  width: auto;
+  border-top: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  display: block !important;
+  height: auto !important;
+  padding-bottom: 0;
+  overflow: visible !important; }
+
+.navbar-nav {
+  float: left;
+  margin: 0; }
+  .navbar-nav li {
+    float: left;
+    width: 50px; }
+    .navbar-nav li a {
+      color: #777;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      line-height: 20px; }
+
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none; }
+  .nav li {
+    position: relative;
+    display: block; }
+    .nav li a {
+      position: relative;
+      display: block;
+      padding: 10px 18px; }
+
 .border {
   padding: 8px;
   margin: 8px;
   color: red;
-  border-color: #3bbfce; }
+  border-color: #3bbfce;
+  position: absolute; }

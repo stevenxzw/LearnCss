@@ -60,8 +60,6 @@ gulp.task('html', function () {
 	 harp.compile('./demos', './www', function() {
          console.log('after--html');
         gulp.run('format', 'recover', 'whtml');
-         //console.log('before---whtml');
-        //gulp.run('whtml');
          return;
          return gulp.src('./dist/*.html')
              .pipe(prettify({indent_size: 4, indent_inner_html: true, wrap_line_length: 0}))
@@ -84,6 +82,9 @@ gulp.task('run2', function(){
 
 })
 
+gulp.task('wsass', function(){
+    gulp.watch(['./demos/scss/*'], ['sass']);
+})
 
 gulp.task('sass', function () {
     /*

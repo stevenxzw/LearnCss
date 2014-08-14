@@ -6,7 +6,16 @@ html(lang="zh-cn")
       .container
         .navbar-header
           a(href="#").navbar-brand projectName
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            - var lists = ["Home", "User", "Options"]
+              each item in lists
+                li
+                  a(href="#")= item
     div.container
       a(href="#").border  success
       - for(var i=0;i<100;i++)
         p wandoujia-fe#{i}
+    script
+      $('.border').animate({'left':400}, 2000, function(){ })
+      setTimeout(function(){$('.border').stop()}, 1000);
