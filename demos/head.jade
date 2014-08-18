@@ -1,0 +1,15 @@
+doctype html
+html(lang="zh-cn")
+    include layout/header2
+    body
+      div.nav
+        .div.sole
+           ul.navbar-nav
+             - var lists = ["Home", "User", "Options"]
+             each item in lists
+               li
+                 a(href="#")= item
+      div.clearfix
+      #my
+        .test 22
+        //p 1234556

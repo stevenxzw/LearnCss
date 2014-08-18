@@ -1,0 +1,57 @@
+@import "includes/settings";
+@import "includes/_base";
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #428bca;
+  text-decoration: none;
+}
+
+body{
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-size: $fontSize;
+}
+
+div.clearfix{
+  clear: both;
+}
+div:before{
+  background: red;
+  content: ' ';
+}
+div:after{
+  background: blue;
+  clear: both;
+}
+.test{
+  float: left;
+}
+p{
+  clear: both;
+}
+.nav{
+  left : 0;
+  right:0;
+  min-height: 50px;
+  
+  position: fixed;
+  background-color: #ccc;
+  top:0;
+}
+.navbar-nav{
+  list-style: none;
+  li{
+    float : left;
+    a{
+      padding: 10px 15px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      line-height: 20px;
+    }
+  }
+}
+
