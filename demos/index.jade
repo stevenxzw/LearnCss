@@ -13,9 +13,8 @@ html(lang="zh-cn")
                 li
                   a(href="#")= item
     div.container
-      a(href="#").border  success
-      - for(var i=0;i<100;i++)
-        p wandoujia-fe#{i}
-    script
-      $('.border').animate({'left':400}, 2000, function(){ })
-      setTimeout(function(){$('.border').stop()}, 1000);
+      .jumbotron
+        h1 Hello, world!
+        .title 请输入：
+        .ableDiv#ableDiv(contentEditable=true)
+          span 小学

@@ -35,7 +35,6 @@ gulp.task('jade', ['serve', 'wjd', 'html']);
 
 gulp.task('wjd', function(){
     gulp.watch(['./demos/*.*'], ['html']);
-
 })
 
 gulp.task('recover', function () {
@@ -100,3 +99,6 @@ gulp.task('sass', function () {
         .pipe(sass())
         .pipe(gulp.dest('./dist/css'))
 });
+
+
+gulp.task('default', ['wsass', 'jade']);
