@@ -14,7 +14,9 @@ html(lang="zh-cn")
                   a(href="#")= item
     div.container
       .jumbotron
-        h1 Hello, world!
-        .title 请输入：
-        input.ableDiv#ableDiv
-        //.ableDiv#ableDiv(contentEditable=true)
+        h1 --
+        .inputPanel
+          .title 请输入：
+          //input.ableDiv#ableDiv(type="text")
+          .ableDiv#ableDiv(contentEditable=true)
+          .choosed
