@@ -91,18 +91,134 @@
         },
 
         reader : function(){
-            
+
 
         }
 
     }
-
+    var isIE = false;
     $(function(){
 
         console.log('init');
-        new AutoInput({view : $('#ableDiv')});
+       // new AutoInput({view : $('#ableDiv')});
+
+        tinymce.init({selector:'textarea',
+            invalid_styles: {
+                '*': 'color font-size', // Global invalid styles
+                'a': '' // Link specific invalid styles
+            },
+            autosave_interval: "1s",
+            setup : function(ed){
+                console.log('text');
+                ed.on('click', function(e) {
+                   // console.log('Editor was clicked');
+                });
+                ed.on('paste', function(e){
+                    var d =  pasteClipboardData('ifb_ifr',e);
+                    console.log(d);
+                return "--";
+                })
+            },
+            init_instance_callback : function(editor) {
+                console.log("Editor: " + editor.id + " is now initialized.");
+            }
+        });
+
+
+        function getSel(w)
+        {
+            return w.getSelection ? w.getSelection() : w.document.selection;
+        }
+        function setRange(sel,r)
+        {
+            sel.removeAllRanges();
+            sel.addRange(r);
+        }
+        function filterPasteData(originalText)
+        {
+            return 'wwwwwwwwwwwwww';
+            var newText=originalText;
+//do something to filter unnecessary data
+            return newText;
+        }
+        function block(e)
+        {
+            e.preventDefault();
+        }
+        var w,or,divTemp,originText;
+        var newData;
+        function pasteClipboardData(editorId,e)
+        {
+            var objEditor = document.getElementById(editorId);
+            var edDoc=objEditor.contentWindow.document;
+            if(isIE)
+            {
+
+            }else
+            {
+                enableKeyDown=false;
+//create the temporary html editor
+                var divTemp=edDoc.createElement("DIV");
+                divTemp.id='htmleditor_tempdiv';
+                divTemp.innerHTML='\uFEFF';
+                divTemp.style.left="-10000px"; //hide the div
+                divTemp.style.height="1px";
+                divTemp.style.width="1px";
+                divTemp.style.position="absolute";
+                divTemp.style.overflow="hidden";
+                edDoc.body.appendChild(divTemp);
+//disable keyup,keypress, mousedown and keydown
+                objEditor.contentWindow.document.addEventListener("mousedown",block,false);
+                objEditor.contentWindow.document.addEventListener("keydown",block,false);
+                enableKeyDown=false;
+//get current selection;
+                w=objEditor.contentWindow;
+                or=getSel(w).getRangeAt(0);
+//move the cursor to into the div
+                var docBody=divTemp.firstChild;
+                rng = edDoc.createRange();
+                rng.setStart(docBody, 0);
+                rng.setEnd(docBody, 1);
+                setRange(getSel(w),rng);
+                originText=objEditor.contentWindow.document.body.textContent;
+                if(originText==='\uFEFF')
+                {
+                    originText="+++++";
+                }
+                window.setTimeout(function()
+                {
+//get and filter the data after onpaste is done
+                    if(divTemp.innerHTML==='\uFEFF')
+                    {
+                        newData="-----------------------";
+                        edDoc.body.removeChild(divTemp);
+                        return;
+                    }
+                    newData=divTemp.innerHTML;
+// Restore the old selection
+                    if (or)
+                    {
+                        setRange(getSel(w),or);
+                    }
+                    newData=filterPasteData(newData);
+                    divTemp.innerHTML=newData;
+//paste the new data to the editor
+                    objEditor.contentWindow.document.execCommand('inserthtml', false, newData );
+                    //edDoc.body.removeChild(divTemp);
+                },0);
+//enable keydown,keyup,keypress, mousedown;
+                enableKeyDown=true;
+                objEditor.contentWindow.document.removeEventListener("mousedown",block,false);
+                objEditor.contentWindow.document.removeEventListener("keydown",block,false);
+                return true;
+            }
+        }
+
+
 
     })
+
+
 
 
 })()
