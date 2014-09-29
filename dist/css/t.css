@@ -117,8 +117,33 @@ body {
   position: absolute; }
 
 /*-------联想输入-------*/
+.inputPanel {
+  background: #ffffff;
+  padding: 20px;
+  height: 300px;
+  width: 300px; }
+  .inputPanel .chooseFloat {
+    background: #ffdddd;
+    position: absolute;
+    list-style: none; }
+    .inputPanel .chooseFloat li {
+      overflow: hidden;
+      padding: 1px 6px;
+      line-height: 22px;
+      cursor: pointer; }
+      .inputPanel .chooseFloat li a:hover {
+        background: #ffffff; }
+  .inputPanel .choosed {
+    display: none;
+    position: relative;
+    padding: 5px; }
+    .inputPanel .choosed span {
+      background: #999999;
+      margin: 3px;
+      padding: 2px; }
+
 .ableDiv {
-  background: white;
+  background: #ffeeaa;
   height: 25px;
   line-height: 25px;
   width: 200px; }

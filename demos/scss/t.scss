@@ -132,8 +132,45 @@ body{
 }
 
 /*-------联想输入-------*/
+
+
+.inputPanel{
+  background: #ffffff;
+  padding: 20px;
+  height: 300px;
+  width: 300px;
+    .chooseFloat{
+       background: #ffdddd;
+       position: absolute;
+       list-style: none;
+         li{
+             overflow: hidden;
+             padding: 1px 6px;
+             line-height: 22px;
+             cursor: pointer;
+
+             a{
+               &:hover{
+                 background: #ffffff;
+               }
+             }
+         }
+    }
+    .choosed{
+      display: none;
+      position: relative;
+      padding: 5px;
+      span{
+        background: #999999;
+        margin: 3px;
+        padding: 2px;
+      }
+    }
+}
+
+
 .ableDiv{
-  background:white;
+  background:#ffeeaa;
   height:25px;
   line-height: 25px;
   width: 200px;
